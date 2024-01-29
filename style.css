@@ -1,60 +1,66 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap");
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
 }
 
 body {
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   background: #222;
-}
-
-.container {
-  width: 50%;
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  width: 50vw;
+}
+
+.info {
+  display: flex;
   background: #42275a;
   border-radius: 10px;
-  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+label {
+  padding: 20px 30px;
+  width: 100%;
   color: #fff;
-  gap: 10px;
 }
 
-.content p {
-  padding: 0 10px;
-}
-
-.label {
+.header {
   display: flex;
-  font-weight: 700;
   justify-content: space-between;
-  padding: 0 10px;
+  align-items: center;
   width: 100%;
 }
 
-input {
-  display: none;
+label .hidden {
+  margin-top: 20px;
 }
 
-.tabs {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.descricao {
-  display: none;
-}
-
-.content #home:checked ~ .descricao {
+.info #home:checked + label .hidden,
+.info #settings:checked + label .hidden,
+.info #security:checked + label .hidden {
   display: block;
+}
+
+.bx {
+  transition: transform 0.2s linear;
+}
+
+.info #home:checked + label .bx,
+.info #settings:checked + label .bx,
+.info #security:checked + label .bx {
+  transform: rotate(180deg);
 }
